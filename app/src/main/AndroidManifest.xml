@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.e.main_hu4_prueba">
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".activity_historico"></activity>
+        <activity android:name=".eliminar_parada_conductor" />
+        <activity android:name=".modificar_parada_condutor" />
+        <activity android:name=".seleccionar_parada" />
+        <activity android:name=".panel_opcion_pasajero" />
+        <activity android:name=".panel_opcion_conductor" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDAS1HctdqXPvnZhsNH60xWsm9TR_KZ4aM" />
+
+        <activity android:name=".Mapa_SigFox" />
+        <activity android:name=".init_app_as" />
+        <activity android:name=".Signin_user" />
+        <activity android:name=".login_user" />
+        <activity android:name=".registrar_parada_conductor" />
+        <activity android:name=".opcion_paradas_conductor" />
+        <activity android:name=".MainActivity_hu4p">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
