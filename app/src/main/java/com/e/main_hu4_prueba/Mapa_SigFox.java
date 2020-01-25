@@ -74,7 +74,6 @@ public class Mapa_SigFox extends FragmentActivity implements OnMapReadyCallback 
         latVal=-2.1629;
         longVal=-79.9389;
         db_reference = FirebaseDatabase.getInstance().getReference().child("Dispotivo");
-
         db_reference.addValueEventListener(new ValueEventListener() { @Override
         public void onDataChange(DataSnapshot dataSnapshot) {
             for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
@@ -83,18 +82,17 @@ public class Mapa_SigFox extends FragmentActivity implements OnMapReadyCallback 
                  longVal1 = String.valueOf(snapshot.child("Longitud").getValue());
 
                  }
-            if (latVal1.equals("null") || longVal1.equals("null")){
-                latVal=-2.1629;
-                longVal=-79.9389;
+            if (latVal1.equals(null) || longVal1.equals(null)){
+                latVal=-2.177533;
+                longVal=-79.899504;
             }
             else if (latVal1.equals(" ") || longVal1.equals(" ")){
                 latVal=-2.1629;
                 longVal=-79.9389;
             }
             else{
-                latVal= new Double(latVal1);
-                longVal=new Double (longVal1);
-
+                latVal=Double.parseDouble(latVal1);
+                longVal=Double.parseDouble(longVal1);
             }}
             @Override
             public void onCancelled(DatabaseError error) { System.out.println(error.toException());
