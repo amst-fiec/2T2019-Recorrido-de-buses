@@ -1,17 +1,22 @@
 package com.e.main_hu4_prueba;
 
+import java.util.ArrayList;
+
 public class Conductor {
 
 
-    String nombre, username, password;
-    parada parada=null;
+    String nombre, correo, password, placa;
+    ArrayList<parada> arreglo_paradas;
 
     public Conductor () {
     }
-    public Conductor(String nombre, String username, String password){
+    public Conductor(String nombre, String email, String password){
         this.nombre=nombre;
-        this.username=username;
+        this.correo=email;
         this.password=password;
+        this.placa="";
+        this.arreglo_paradas=new ArrayList<parada>();
+
     }
 
     public String getNombre() {
@@ -23,11 +28,11 @@ public class Conductor {
     }
 
     public String getUsername() {
-        return username;
+        return correo;
     }
 
     public void setUsername(String username) {
-        this.username = username;
+        this.correo = username;
     }
 
     public String getPassword() {
@@ -38,12 +43,16 @@ public class Conductor {
         this.password = password;
     }
 
-    public parada getParada() {
-        return parada;
+    public ArrayList<parada> getParada() {
+        return arreglo_paradas;
     }
 
-    public void setParada(parada parada) {
-        this.parada = parada;
+    public void add_Parada(parada parada) {
+        this.arreglo_paradas.add(parada);
+    }
+
+    public void setPlaca(String placa) {
+        this.placa = placa;
     }
 
 }

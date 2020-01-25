@@ -41,7 +41,7 @@ public class panel_opcion_pasajero extends AppCompatActivity {
         btn_map_gsm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //startActivity(new Intent(com.e.main_hu4_prueba.panel_opcion_pasajero.this, SOMECLASS.class));
+                startActivity(new Intent(com.e.main_hu4_prueba.panel_opcion_pasajero.this, Mapa_GSM.class));
             }
         });
         //abre activity mapa SigFox (HU1)

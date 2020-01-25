@@ -6,6 +6,8 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS"></uses-permission>
+    <uses-permission android:name="android.permission.READ_SMS"></uses-permission>
 
     <application
         android:allowBackup="true"
@@ -14,7 +16,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity_historico"></activity>
+
+        <activity android:name=".Mapa_GSM"></activity>
+        <activity android:name=".activity_historico" />
         <activity android:name=".eliminar_parada_conductor" />
         <activity android:name=".modificar_parada_condutor" />
         <activity android:name=".seleccionar_parada" />
@@ -38,6 +42,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <receiver android:name=".MyReceiver" android:enabled="true" android:exported="true">
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED"></action>
+            </intent-filter>
+        </receiver>
+
     </application>
 
 </manifest>

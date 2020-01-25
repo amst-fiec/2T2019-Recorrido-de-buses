@@ -1,0 +1,37 @@
+{
+  "Dispositivo_ubicacion_SigFox": {
+    "Dispositivo ID": {
+      "Latitud": "",
+      "Longitud": "",
+      "tiempo":""
+    }
+  },
+  "Dispositivo_ubicacion_GSM": {
+    "Dispositivo ID": {
+      "Latitud": "",
+      "Longitud": "",
+      "tiempo":""
+    }
+  },
+  "conductor_hp": {
+    "conductor_ID": {
+      "PARADA": {
+        "latitud": "",
+        "longitud": "",
+        "nombre": ""
+      },
+      "correo": "",
+      "nombre_conductor": "",
+      "passsword": "",
+      "placa_bus": ""
+    }
+  },
+  "pasajero":{
+    "pasajero_ID":{
+      "nombre":"",
+      "email":"",
+      "correo":"",
+      "password":""
+    }
+  }
+}
