@@ -14,6 +14,11 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class login_user extends AppCompatActivity {
 
@@ -22,6 +27,7 @@ public class login_user extends AppCompatActivity {
 
     private String email,contraseña;
 
+    public DatabaseReference db_reference;
     private FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +46,7 @@ public class login_user extends AppCompatActivity {
                 contraseña= txtcontraseña.getText().toString();
 
                 if (!email.isEmpty() && !contraseña.isEmpty()){
+
                     loginUser();
                 }
                 else{
@@ -59,16 +66,64 @@ public class login_user extends AppCompatActivity {
                     //startActivity(new Intent(login_user.this,Mapa_SigFox.class));
                     //hay que validar si es usuairo o pasajero el que inicia sesion
                     if (init_app_as.Listener.equals("btn_conductor")){
-                        init_app_as.setListener("");
-                        startActivity(new Intent(login_user.this,panel_opcion_conductor.class));
-                        finish();
+
+                        db_reference = FirebaseDatabase.getInstance().getReference("Usuario").child(mAuth.getUid());
+
+                        db_reference.addValueEventListener(new ValueEventListener() { @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+
+                            if(dataSnapshot.exists()){
+                                String tipo = dataSnapshot.child("tipo").getValue(String.class);
+                                if( tipo.equals("conductor")){
+                                    init_app_as.setListener("");
+                                    startActivity(new Intent(login_user.this,panel_opcion_conductor.class));
+                                    finish();
+                                }
+                                else{
+                                    Toast.makeText(login_user.this, "Usted no es un conductor", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                            //ya tenemos los datos desde Firebase, podemos actualizar la UI
+
+                        }
+
+                            @Override
+                            public void onCancelled(DatabaseError databaseError) {
+                                System.out.println("Fallo la lectura: " + databaseError.getCode());
+                            }
+                        });
+
+
                     }
 
 
                     if (init_app_as.Listener.equals("btn_pasajero")){
+                        db_reference = FirebaseDatabase.getInstance().getReference("Usuario").child(mAuth.getUid());
+
+                        db_reference.addValueEventListener(new ValueEventListener() { @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+
+                            if(dataSnapshot.exists()){
+                                String tipo = dataSnapshot.child("tipo").getValue(String.class);
+                                if( tipo.equals("usuario")){
                         init_app_as.setListener("");
+
                         startActivity(new Intent(login_user.this,panel_opcion_pasajero.class));
                         finish();
+                                }
+                                else{
+                                    Toast.makeText(login_user.this, "Usted no es un conductor", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                            //ya tenemos los datos desde Firebase, podemos actualizar la UI
+
+                        }
+
+                            @Override
+                            public void onCancelled(DatabaseError databaseError) {
+                                System.out.println("Fallo la lectura: " + databaseError.getCode());
+                            }
+                        });
                     }
 
 

@@ -29,7 +29,8 @@ public class Mapa_SigFox extends FragmentActivity implements OnMapReadyCallback 
     public DatabaseReference db_reference;
     public double latVal;
     public double longVal;
-
+    String latVal1 ;
+    String longVal1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,22 +79,23 @@ public class Mapa_SigFox extends FragmentActivity implements OnMapReadyCallback 
         public void onDataChange(DataSnapshot dataSnapshot) {
             for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
 
-                String latVal1 = String.valueOf(snapshot.child("Latitud").getValue());
-                String longVal1 = String.valueOf(snapshot.child("Longitud").getValue());
+                 latVal1 = String.valueOf(snapshot.child("Latitud").getValue());
+                 longVal1 = String.valueOf(snapshot.child("Longitud").getValue());
 
-                if (latVal1.equals("null") || longVal1.equals("null")){
-                    latVal=-2.1629;
-                    longVal=-79.9389;
-                }
-                else if (latVal1.equals(" ") || longVal1.equals(" ")){
-                    latVal=-2.1629;
-                    longVal=-79.9389;
-                }
-                else{
-                    latVal= new Double(latVal1);
-                    longVal=new Double (longVal1);
+                 }
+            if (latVal1.equals("null") || longVal1.equals("null")){
+                latVal=-2.1629;
+                longVal=-79.9389;
+            }
+            else if (latVal1.equals(" ") || longVal1.equals(" ")){
+                latVal=-2.1629;
+                longVal=-79.9389;
+            }
+            else{
+                latVal= new Double(latVal1);
+                longVal=new Double (longVal1);
 
-                } }}
+            }}
             @Override
             public void onCancelled(DatabaseError error) { System.out.println(error.toException());
             } });
