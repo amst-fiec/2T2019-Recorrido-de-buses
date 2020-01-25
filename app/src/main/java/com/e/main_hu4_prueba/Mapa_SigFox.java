@@ -1,10 +1,14 @@
 package com.e.main_hu4_prueba;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -70,7 +74,13 @@ public class Mapa_SigFox extends FragmentActivity implements OnMapReadyCallback 
         mMap.clear();
         UiSettings uiSettings= mMap.getUiSettings();
         uiSettings.setZoomControlsEnabled(true);
-        mMap.setMyLocationEnabled(true);
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+                == PackageManager.PERMISSION_GRANTED) {
+            mMap.setMyLocationEnabled(true);
+        } else {
+            Toast.makeText(Mapa_SigFox.this, "NO mMap.setMyLocationEnabled(true)", Toast.LENGTH_SHORT).show();
+        }
+
         latVal=-2.1629;
         longVal=-79.9389;
         db_reference = FirebaseDatabase.getInstance().getReference().child("Dispotivo");
@@ -78,10 +88,10 @@ public class Mapa_SigFox extends FragmentActivity implements OnMapReadyCallback 
         public void onDataChange(DataSnapshot dataSnapshot) {
             for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
 
-                 latVal1 = String.valueOf(snapshot.child("Latitud").getValue());
-                 longVal1 = String.valueOf(snapshot.child("Longitud").getValue());
+                latVal1 = String.valueOf(snapshot.child("Latitud").getValue());
+                longVal1 = String.valueOf(snapshot.child("Longitud").getValue());
 
-                 }
+            }
             if (latVal1.equals(null) || longVal1.equals(null)){
                 latVal=-2.177533;
                 longVal=-79.899504;

@@ -15,11 +15,12 @@ import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity_hu4p extends AppCompatActivity {
-    private static final int MY_Permission_REQUEST_RECEIVE_SMS=0;
 
     private Button btn_iniciar_app;
     //objeto firebase
     private FirebaseAuth mAuth;
+    private static final int MY_Permission_REQUEST_RECEIVE_SMS=0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +31,7 @@ public class MainActivity_hu4p extends AppCompatActivity {
         btn_iniciar_app.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                System.out.println("hola_from_MainActivity_hu4p");
                 startActivity(new Intent(com.e.main_hu4_prueba.MainActivity_hu4p.this,init_app_as.class ));
 
                 // Initialize Firebase Auth
@@ -38,6 +40,17 @@ public class MainActivity_hu4p extends AppCompatActivity {
             }
         });
 
+        if((ContextCompat.checkSelfPermission(this, Manifest.permission.RECEIVE_SMS) != PackageManager.PERMISSION_GRANTED))
+        {
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.RECEIVE_SMS))
+            {
+
+            }
+            else
+            {
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.RECEIVE_SMS}, MY_Permission_REQUEST_RECEIVE_SMS);
+            }
+        }
 
     }
 
