@@ -19,6 +19,9 @@ import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.HashMap;
+import java.util.Map;
+
 
 public class Signin_user extends AppCompatActivity {
     //instancio variables a utilizar
@@ -28,6 +31,8 @@ public class Signin_user extends AppCompatActivity {
     private FirebaseAuth mAuth;
     DatabaseReference mDatabase;
     private String nombre,email,password;
+    private String conductor= "conductor";
+    private String usuario="usuario";
 
 
     private ProgressDialog message;
@@ -86,24 +91,111 @@ public class Signin_user extends AppCompatActivity {
                 startActivity(new Intent(Signin_user.this,init_app_as.class ));
             }
         });
-
-
-    }
-
-    public void createAccount_D(){
-        mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(Signin_user.this, new OnCompleteListener<AuthResult>() {
+        btn_signin_passgr.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (!task.isSuccessful()){
-                    FirebaseAuthException e = (FirebaseAuthException )task.getException();
-                    Toast.makeText(Signin_user.this, "Failed Registration: "+e.getMessage(), Toast.LENGTH_SHORT).show();
-                    return;
+            public void onClick(View v) {
+                System.out.println("hello from btnsigninpass ");
+                nombre=etxt_nombre.getText().toString();
+                email=etxt_mail.getText().toString();
+                password=etxt_password.getText().toString();
+
+                if (!nombre.isEmpty() && !email.isEmpty() && !password.isEmpty()){
+                    if (password.length()>=6){
+                        //llamada a metodo usado para crear usuarios
+                        createAccount_P();
+                    }
+                    else{
+                        Toast.makeText(Signin_user.this,"Password al menos 6 caracteres", Toast.LENGTH_SHORT).show();
+
+                    }
+
                 }
-                else {
-                    startActivity(new Intent (Signin_user.this, init_app_as.class));
+                else{
+                    Toast.makeText(Signin_user.this,"Debe completar los campos", Toast.LENGTH_SHORT).show();
                 }
             }
         });
+        //agrgo listeners, para la intereccion con el botón ya_existo
+        btn_ya_existo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Signin_user.this,init_app_as.class ));
+            }
+        });
+
+
     }
 
+    public void createAccount_D() {
+        mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(Signin_user.this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()) {
+                    Map<String, Object> map = new HashMap<>();
+                    map.put("name", nombre);
+                    map.put("email", email);
+                    map.put("password", password);
+                    map.put("tipo",conductor);
+
+
+                    String id = mAuth.getCurrentUser().getUid();
+
+                    mDatabase.child("Usuario").child(id).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task2) {
+                            if (task2.isSuccessful()) {
+                                startActivity(new Intent(Signin_user.this, panel_opcion_conductor.class));
+                                finish();
+
+                            } else {
+                                Toast.makeText(Signin_user.this, "No se pudo crear los datos correctamente", Toast.LENGTH_SHORT).show();
+
+                            }
+                        }
+                    });
+                }
+
+            }
+
+        });}
+
+
+
+
+
+
+    private void createAccount_P() {
+        mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(Signin_user.this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()) {
+                    Map<String, Object> mapP = new HashMap<>();
+                    mapP.put("name", nombre);
+                    mapP.put("email", email);
+                    mapP.put("password", password);
+                    mapP.put("tipo",usuario);
+
+
+                    String id = mAuth.getCurrentUser().getUid();
+
+                    mDatabase.child("Usuario").child(id).setValue(mapP).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task2) {
+                            if (task2.isSuccessful()) {
+                                startActivity(new Intent(Signin_user.this, panel_opcion_pasajero.class));
+                                finish();
+
+                            } else {
+                                Toast.makeText(Signin_user.this, "No se pudo crear los datos correctamente", Toast.LENGTH_SHORT).show();
+
+                            }
+                        }
+                    });
+                }
+
+            }
+
+        });
+
+    }
 }
