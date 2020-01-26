@@ -1,17 +1,6 @@
 <resources>
-    <string name="app_name">Main_HU4_prueba</string>
-
-
-    <string name="historico1">historico</string>
-    <string name="datos_bus_conductor">Datos Bus/Conductor</string>
-    <string name="visualizaci_n_gsm">Visualización GSM</string>
-    <string name="visualizacion_sigfox">Visualización SigFox</string>
-    <string name="cerrar_sesion">Cerrar sesion</string>
-    <string name="cerrar_sesion2">Cerrar sesion</string>
-    <string name="paradas">Paradas</string>
-    <string name="registrar_datos">Registrar Datos</string>
-    <string name="visualizaci_n_sigfox">Visualización SigFox</string>
-    <string name="visualizacion_gsm">Visualización GSM</string>
-    <string name="historico">Historico</string>
-    <string name="seleccionar_paradas">Seleccionar Paradas</string>
+    <string name="app_name">Proyecto</string>
+    <string name="title_activity_mapa_usuario">Map</string>
+    <string name="BotonConductor">Conductor</string>
+    <string name="BotonUsuario">Usuario</string>
 </resources>
