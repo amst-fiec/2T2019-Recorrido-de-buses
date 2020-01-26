@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.amst.proyecto">
-    <!--
-         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
-         Google Maps Android API v2, but you must specify either coarse or fine
-         location permissions for the 'MyLocation' functionality.
-    -->
+    package="com.e.main_hu4_prueba">
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS"></uses-permission>
+    <uses-permission android:name="android.permission.READ_SMS"></uses-permission>
 
     <application
         android:allowBackup="true"
@@ -17,37 +16,39 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivityUsuario"></activity>
-        <activity android:name=".Inicio" />
-        <activity android:name=".Inicio_sesion" />
-        <!--
-             The API key for Google Maps-based APIs is defined as a string resource.
-             (See the file "res/values/google_maps_api.xml").
-             Note that the API key is linked to the encryption key used to sign the APK.
-             You need a different API key for each encryption key, including the release key that is used to
-             sign the APK for publishing.
-             You can define the keys for the debug and release targets in src/debug/ and src/release/.
-        -->
+
+        <activity android:name=".Mapa_GSM"></activity>
+        <activity android:name=".activity_historico" />
+        <activity android:name=".eliminar_parada_conductor" />
+        <activity android:name=".modificar_parada_condutor" />
+        <activity android:name=".seleccionar_parada" />
+        <activity android:name=".panel_opcion_pasajero" />
+        <activity android:name=".panel_opcion_conductor" />
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_maps_key" />
+            android:value="AIzaSyDAS1HctdqXPvnZhsNH60xWsm9TR_KZ4aM" />
 
-        <activity
-            android:name=".MapaUsuario"
-            android:label="@string/title_activity_mapa_usuario"/>
-        <activity
-            android:name=".MainActivity"
-            android:label="@string/app_name"/>
-
-        <activity
-            android:name=".SplashActivity"
-            android:theme="@style/SplashTheme">
+        <activity android:name=".Mapa_SigFox" />
+        <activity android:name=".init_app_as" />
+        <activity android:name=".Signin_user" />
+        <activity android:name=".login_user" />
+        <activity android:name=".registrar_parada_conductor" />
+        <activity android:name=".opcion_paradas_conductor" />
+        <activity android:name=".MainActivity_hu4p">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <receiver android:name=".MyReceiver" android:enabled="true" android:exported="true">
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED"></action>
+            </intent-filter>
+        </receiver>
+
     </application>
 
 </manifest>
