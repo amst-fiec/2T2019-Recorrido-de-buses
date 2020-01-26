@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity_historico">
+    tools:context=".activity_historico"
+    android:background="@drawable/buss">
 
     <TextView
         android:id="@+id/textView4"
@@ -13,6 +14,7 @@
         android:layout_marginTop="47dp"
         android:layout_marginBottom="125dp"
         android:text="Historico"
+        android:textColor="#1F1D1D"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
@@ -27,7 +29,10 @@
         android:layout_marginStart="11dp"
         android:layout_marginEnd="11dp"
         android:layout_marginBottom="296dp"
+        android:background="#F28DFCE5"
+        android:baselineAligned="true"
         android:orientation="vertical"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -42,31 +47,36 @@
                 android:id="@+id/textView6"
                 android:layout_width="92dp"
                 android:layout_height="35dp"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:visibility="visible" />
 
             <TextView
                 android:id="@+id/textView8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="#75F0CD"
                 android:text="Time Arrive Real"
-                android:textAlignment="center" />
+                android:textColor="#FD0F0F0F" />
 
             <TextView
                 android:id="@+id/textView9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="#75F0CD"
                 android:text="Time Arrive Sigfox"
-                android:textAlignment="center" />
+                android:textColor="#FD111010" />
 
             <TextView
                 android:id="@+id/textView10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="#75F0CD"
                 android:text="Time Arrive GSM"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textColor="#FC0C0C0C" />
         </LinearLayout>
 
         <LinearLayout
@@ -76,31 +86,33 @@
 
             <TextView
                 android:id="@+id/textView27"
-                android:layout_width="43dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Bus1" />
-
-            <TextView
-                android:id="@+id/textView28"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:background="#75F0CD"
+                android:text="Bus"
+                android:textColor="#F7131212" />
 
             <TextView
-                android:id="@+id/textView29"
+                android:id="@+id/t_real"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:text="10:30  " />
 
             <TextView
-                android:id="@+id/textView30"
+                android:id="@+id/t_sig"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:text="10:30" />
+
+            <TextView
+                android:id="@+id/t_gsm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="10:30" />
 
         </LinearLayout>
 

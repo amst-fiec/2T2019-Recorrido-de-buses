@@ -11,78 +11,114 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="1.0" />
 
-    <Button
-        android:id="@+id/btn_init_pasajero"
-        android:layout_width="180dp"
-        android:layout_height="60dp"
-        android:layout_marginBottom="24dp"
-        android:gravity="center_horizontal"
-        android:text="USUARIO"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_init_regis"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_init_conductor" />
 
     <ImageView
         android:id="@+id/ini_image"
-        android:layout_width="313dp"
-        android:layout_height="276dp"
+        android:layout_width="167dp"
+        android:layout_height="158dp"
         android:layout_marginStart="1dp"
         android:layout_marginEnd="1dp"
-        android:layout_marginBottom="18dp"
-        app:layout_constraintBottom_toTopOf="@+id/txt_init_sesion"
+        android:layout_marginBottom="43dp"
+        app:layout_constraintBottom_toTopOf="@+id/input_group"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/bus" />
 
-    <TextView
-        android:id="@+id/txt_init_sesion"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="51dp"
-        android:gravity="center_horizontal"
-        android:text="Iniciar sesion como:"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_init_conductor"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ini_image" />
 
-    <Button
-        android:id="@+id/btn_init_conductor"
-        android:layout_width="180dp"
-        android:layout_height="60dp"
-        android:layout_marginBottom="17dp"
-        android:gravity="center_horizontal"
-        android:text="CONDUCTOR"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_init_pasajero"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_init_sesion" />
-
-    <Button
-        android:id="@+id/btn_init_regis"
-        android:layout_width="180dp"
-        android:layout_height="60dp"
-        android:layout_marginBottom="79dp"
-        android:gravity="center_horizontal"
-        android:text="REGISTRARSE"
-        android:textSize="24sp"
+    <LinearLayout
+        android:id="@+id/input_group"
+        android:layout_width="362dp"
+        android:layout_height="382dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginBottom="74dp"
+        android:background="#00BBECF5"
+        android:gravity="center"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_init_pasajero" />
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ini_image">
+
+        <TextView
+            android:id="@+id/txt_init_sesion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="56dp"
+            android:fontFamily="sans-serif"
+            android:gravity="center_horizontal"
+            android:text="Ingresar como"
+            android:textAllCaps="true"
+            android:textColor="#FCFDFD"
+            android:textSize="23dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.537"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ini_image"
+
+            />
+
+        <Button
+            android:id="@+id/btn_init_pasajero"
+            android:layout_width="139dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="44dp"
+            android:background="@drawable/button"
+
+            android:gravity="center|center_horizontal"
+            android:text="USUARIO"
+            android:textAllCaps="false"
+            android:textColor="#2196F3"
+            android:textSize="17sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_init_sesion"
+
+            />
+
+        <Button
+            android:id="@+id/btn_init_conductor"
+            android:layout_width="139dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="44dp"
+            android:background="@drawable/button"
+            android:gravity="center|center_horizontal"
+            android:text="CONDUCTOR"
+            android:textAllCaps="false"
+            android:textColor="#2196F3"
+            android:textSize="17sp"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_init_pasajero" />
+
+        <Button
+            android:id="@+id/btn_init_regis"
+            android:layout_width="139dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="44dp"
+            android:background="@drawable/button"
+            android:gravity="center|center_horizontal"
+            android:text="REGISTRARSE"
+            android:textAllCaps="false"
+            android:textColor="#2196F3"
+            android:textSize="17sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_init_conductor" />
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

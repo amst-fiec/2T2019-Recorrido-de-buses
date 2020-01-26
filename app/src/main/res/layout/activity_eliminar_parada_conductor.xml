@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".eliminar_parada_conductor">
+    tools:context=".eliminar_parada_conductor"
+    android:background="@drawable/buss">
 
     <TextView
         android:id="@+id/textView3"
@@ -13,6 +14,7 @@
         android:layout_marginTop="47dp"
         android:layout_marginBottom="93dp"
         android:text="Eliminar Parada"
+        android:textColor="#0F0F0F"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
@@ -37,19 +39,22 @@
             android:id="@+id/checkBox3"
             android:layout_width="match_parent"
             android:layout_height="57dp"
-            android:text="Parada 1" />
+            android:text="Parada FIEC"
+            android:textColor="#090808" />
 
         <CheckBox
             android:id="@+id/checkBox4"
             android:layout_width="match_parent"
             android:layout_height="46dp"
-            android:text="Parada 2" />
+            android:text="Parada FSCH"
+            android:textColor="#FA0C0C0C" />
 
         <CheckBox
             android:id="@+id/checkBox5"
             android:layout_width="match_parent"
             android:layout_height="52dp"
-            android:text="Parada 3" />
+            android:text="Parada FIMCP"
+            android:textColor="#131212" />
     </LinearLayout>
 
     <Button

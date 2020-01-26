@@ -4,78 +4,98 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".panel_opcion_conductor">
+    tools:context=".panel_opcion_conductor"
+    android:background="@drawable/min">
 
-    <Button
-        android:id="@+id/btn_out_d"
-        android:layout_width="150dp"
-        android:layout_height="60dp"
-        android:text="@string/cerrar_sesion"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.891" />
+        <Button
+            android:id="@+id/btn_out_d"
+            android:layout_width="150dp"
+            android:layout_height="60dp"
+            android:background="@drawable/button"
+            android:text="@string/cerrar_sesion"
+            android:textColor="#2196F3"
+            android:textSize="17sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.891" />
 
-    <Button
-        android:id="@+id/btn_paradas_d"
-        android:layout_width="150dp"
-        android:layout_height="60dp"
-        android:text="@string/paradas"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.16" />
+        <Button
+            android:id="@+id/btn_paradas_d"
+            android:layout_width="150dp"
+            android:layout_height="60dp"
+            android:background="@drawable/button"
+            android:text="@string/paradas"
+            android:textColor="#2196F3"
+            android:textSize="17sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.501"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.16" />
 
-    <Button
-        android:id="@+id/btn_reg_datos_d"
-        android:layout_width="150dp"
-        android:layout_height="60dp"
-        android:text="@string/registrar_datos"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.292" />
+        <Button
+            android:id="@+id/btn_reg_datos_d"
+            android:layout_width="150dp"
+            android:layout_height="60dp"
+            android:background="@drawable/button"
+            android:text="@string/registrar_datos"
+            android:textColor="#2196F3"
+            android:textSize="17sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.292" />
 
-    <Button
-        android:id="@+id/btn_historico"
-        android:layout_width="150dp"
-        android:layout_height="60dp"
-        android:text="@string/historico"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.704" />
+        <Button
+            android:id="@+id/btn_historico"
+            android:layout_width="150dp"
+            android:layout_height="60dp"
+            android:background="@drawable/button"
+            android:text="@string/historico"
+            android:textColor="#2196F3"
+            android:textSize="17sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.704" />
 
-    <Button
-        android:id="@+id/btn_map_SigFox"
-        android:layout_width="150dp"
-        android:layout_height="60dp"
-        android:text="@string/visualizaci_n_sigfox"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.435" />
+        <Button
+            android:id="@+id/btn_map_SigFox"
+            android:layout_width="150dp"
+            android:layout_height="60dp"
+            android:background="@drawable/button"
+            android:text="@string/visualizaci_n_sigfox"
+            android:textColor="#2196F3"
+            android:textSize="17sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.501"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.435" />
 
-    <Button
-        android:id="@+id/btn_map_gsm"
-        android:layout_width="150dp"
-        android:layout_height="60dp"
-        android:text="@string/visualizaci_n_gsm"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.572" />
+        <Button
+            android:id="@+id/btn_map_gsm"
+            android:layout_width="150dp"
+            android:layout_height="60dp"
+            android:background="@drawable/button"
+            android:text="@string/visualizaci_n_gsm"
+            android:textColor="#2196F3"
+            android:textSize="17sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.501"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.572" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

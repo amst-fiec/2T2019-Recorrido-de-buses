@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/buss"
     tools:context=".login_user">
 
 
@@ -14,6 +15,7 @@
         android:ems="10"
         android:hint="Mail"
         android:inputType="textPersonName"
+        android:textColor="#000000"
         app:layout_constraintBottom_toTopOf="@+id/contraseña"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -40,9 +42,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:hint="Password"
         android:inputType="numberPassword"
         android:padding="15dp"
-        android:hint="Password"
+        android:textColor="#0F0F0F"
         app:layout_constraintBottom_toTopOf="@+id/Inicio"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

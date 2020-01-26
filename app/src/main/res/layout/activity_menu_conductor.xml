@@ -4,12 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/menu"
     tools:context=".opcion_paradas_conductor">
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="384dp"
-        android:layout_height="135dp"
+        android:layout_width="302dp"
+        android:layout_height="102dp"
         android:text="Bienvenido Conductor"
         android:textSize="36sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -19,43 +20,51 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.114" />
 
-    <Button
-        android:id="@+id/btn_regis_parada"
-        android:layout_width="270dp"
-        android:layout_height="wrap_content"
-        android:text="Registrar Parada"
-        android:textSize="24sp"
+    <LinearLayout
+        android:id="@+id/input_group"
+        android:layout_width="349dp"
+        android:layout_height="270dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginBottom="74dp"
+        android:background="#00BBECF5"
+        android:gravity="center"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.559"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.632" />
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
 
-    <Button
-        android:id="@+id/btn_modify_parada"
-        android:layout_width="270dp"
-        android:layout_height="wrap_content"
-        android:text="Modificar Parada"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.56"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.486" />
+        <Button
+            android:id="@+id/btn_regis_parada"
+            android:layout_width="270dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button"
+            android:text="Registrar Parada"
+            android:textColor="#2196F3"
+            android:textSize="17sp"
 
-    <Button
-        android:id="@+id/btn_delete_parada"
-        android:layout_width="270dp"
-        android:layout_height="wrap_content"
-        android:text="Eliminar Parada"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.56"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.78" />
+            />
+
+        <Button
+            android:id="@+id/btn_modify_parada"
+            android:layout_width="270dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button"
+            android:text="Modificar Parada"
+            android:textColor="#2196F3"
+            android:textSize="17sp" />
+
+        <Button
+            android:id="@+id/btn_delete_parada"
+            android:layout_width="270dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button"
+            android:text="Eliminar Parada"
+            android:textColor="#2196F3"
+            android:textSize="17sp" />
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

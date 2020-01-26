@@ -20,6 +20,15 @@ public class panel_opcion_conductor extends AppCompatActivity {
         btn_reg_datos_d= (Button) findViewById(R.id.btn_reg_datos_d);
 
         btn_historico= (Button) findViewById(R.id.btn_historico);
+
+        btn_historico.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                System.out.println("historico");
+                startActivity(new Intent(panel_opcion_conductor.this, activity_historico.class ));
+            }
+        });
+
         btn_map_sigfox= (Button) findViewById(R.id.btn_map_SigFox);
         btn_map_gsm= (Button) findViewById(R.id.btn_map_gsm);
 
@@ -48,12 +57,7 @@ public class panel_opcion_conductor extends AppCompatActivity {
         //abre activity seleccionar parda (HU3)
 
         //abre activity historico (HU5, se comparan los datos recibidos por SigFox y GSM)
-        btn_historico.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //startActivity(new Intent(com.e.main_hu4_prueba.panel_opcion_conductor.this, SOMECLASS.class));
-            }
-        });
+
         //abre activity mapa SigFox (HU1)
         btn_map_sigfox.setOnClickListener(new View.OnClickListener() {
             @Override
