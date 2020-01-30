@@ -20,6 +20,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+/*
+* quite eso de que si es usuario conducto se logee de conductor, se debe validar de otra forma
+* */
+
 public class login_user extends AppCompatActivity {
 
     private Button btnInicio;
@@ -28,7 +32,7 @@ public class login_user extends AppCompatActivity {
     private String email,contraseña;
 
     public DatabaseReference db_reference;
-    private FirebaseAuth mAuth;
+    FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,7 +61,7 @@ public class login_user extends AppCompatActivity {
         });
     }
 
-    private void loginUser() {
+    void loginUser() {
         mAuth.signInWithEmailAndPassword(email,contraseña).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -67,21 +71,18 @@ public class login_user extends AppCompatActivity {
                     //hay que validar si es usuairo o pasajero el que inicia sesion
                     if (init_app_as.Listener.equals("btn_conductor")){
 
-                        db_reference = FirebaseDatabase.getInstance().getReference("Usuario").child(mAuth.getUid());
+                        db_reference = FirebaseDatabase.getInstance().getReference("user_c").child(mAuth.getUid());
 
                         db_reference.addValueEventListener(new ValueEventListener() { @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
 
                             if(dataSnapshot.exists()){
-                                String tipo = dataSnapshot.child("tipo").getValue(String.class);
-                                if( tipo.equals("conductor")){
-                                    init_app_as.setListener("");
-                                    startActivity(new Intent(login_user.this,panel_opcion_conductor.class));
-                                    finish();
-                                }
-                                else{
-                                    Toast.makeText(login_user.this, "Usted no es un conductor", Toast.LENGTH_SHORT).show();
-                                }
+                                //String tipo = dataSnapshot.child("tipo").getValue(String.class);
+                                // elimine validacion de "si es conductor"
+                                init_app_as.setListener("");
+                                startActivity(new Intent(login_user.this,panel_opcion_conductor.class));
+                                finish();
+
                             }
                             //ya tenemos los datos desde Firebase, podemos actualizar la UI
 
@@ -106,10 +107,10 @@ public class login_user extends AppCompatActivity {
                             if(dataSnapshot.exists()){
                                 String tipo = dataSnapshot.child("tipo").getValue(String.class);
                                 if( tipo.equals("usuario")){
-                        init_app_as.setListener("");
+                                    init_app_as.setListener("");
 
-                        startActivity(new Intent(login_user.this,panel_opcion_pasajero.class));
-                        finish();
+                                    startActivity(new Intent(login_user.this,panel_opcion_pasajero.class));
+                                    finish();
                                 }
                                 else{
                                     Toast.makeText(login_user.this, "Usted no es un conductor", Toast.LENGTH_SHORT).show();

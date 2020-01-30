@@ -19,6 +19,7 @@ import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -33,6 +34,10 @@ public class Signin_user extends AppCompatActivity {
     private String nombre,email,password;
     private String conductor= "conductor";
     private String usuario="usuario";
+    // Objetos mios
+    Conductor conductor_o;
+    Parada parada_o= new Parada("default", "00", "00");
+    //ArrayList<Parada> paradas_al= new ArrayList<Parada>();
 
 
     private ProgressDialog message;
@@ -59,7 +64,7 @@ public class Signin_user extends AppCompatActivity {
         btn_ya_existo=(Button)findViewById(R.id.btn_ya_existo);
         ///////////////////////////
 
-        //agrego listeners, para la intereccion con el botón signin_driver
+        // botón signin_driver agrego listeners para la intereccion
         btn_signin_driver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -75,22 +80,23 @@ public class Signin_user extends AppCompatActivity {
                     }
                     else{
                         Toast.makeText(Signin_user.this,"Password al menos 6 caracteres", Toast.LENGTH_SHORT).show();
-
                     }
-
                 }
                 else{
                     Toast.makeText(Signin_user.this,"Debe completar los campos", Toast.LENGTH_SHORT).show();
                 }
             }
         });
-        //agrgo listeners, para la intereccion con el botón ya_existo
+        // botón ya_existo agrego listeners para la intereccion
+        // ya esta hecho tudo
         btn_ya_existo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Signin_user.this,init_app_as.class ));
             }
         });
+
+        // botón btn_signin_passgr  agrego listeners para la intereccion
         btn_signin_passgr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -98,49 +104,36 @@ public class Signin_user extends AppCompatActivity {
                 nombre=etxt_nombre.getText().toString();
                 email=etxt_mail.getText().toString();
                 password=etxt_password.getText().toString();
-
                 if (!nombre.isEmpty() && !email.isEmpty() && !password.isEmpty()){
                     if (password.length()>=6){
                         //llamada a metodo usado para crear usuarios
-                        createAccount_P();
+                        //createAccount_P(); // comentado
                     }
                     else{
                         Toast.makeText(Signin_user.this,"Password al menos 6 caracteres", Toast.LENGTH_SHORT).show();
-
                     }
-
                 }
                 else{
                     Toast.makeText(Signin_user.this,"Debe completar los campos", Toast.LENGTH_SHORT).show();
                 }
             }
         });
-        //agrgo listeners, para la intereccion con el botón ya_existo
-        btn_ya_existo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(Signin_user.this,init_app_as.class ));
-            }
-        });
-
 
     }
-
     public void createAccount_D() {
+        System.out.println("hello createAccount_D");
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(Signin_user.this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
-                    Map<String, Object> map = new HashMap<>();
-                    map.put("name", nombre);
-                    map.put("email", email);
-                    map.put("password", password);
-                    map.put("tipo",conductor);
-
-
+                    // obtengo id de usuario creado
                     String id = mAuth.getCurrentUser().getUid();
-
-                    mDatabase.child("Usuario").child(id).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    /////// mi objeto
+                    conductor_o= new Conductor(nombre ,email,password);
+                    conductor_o.setParada(parada_o);
+                    mDatabase.child("user_c").child(id).setValue(conductor_o);
+                    /////////////////
+                    mDatabase.child("user_c").child(id).setValue(conductor_o).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task2) {
                             if (task2.isSuccessful()) {
@@ -160,25 +153,27 @@ public class Signin_user extends AppCompatActivity {
         });}
 
 
-
-
-
-
     private void createAccount_P() {
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(Signin_user.this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
+                    /*
                     Map<String, Object> mapP = new HashMap<>();
                     mapP.put("name", nombre);
                     mapP.put("email", email);
                     mapP.put("password", password);
                     mapP.put("tipo",usuario);
-
-
+                    */
                     String id = mAuth.getCurrentUser().getUid();
 
-                    mDatabase.child("Usuario").child(id).setValue(mapP).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    /////// mi objeto
+                    conductor_o= new Conductor(nombre ,email,password);
+                    conductor_o.setParada(parada_o);
+                    mDatabase.child("user_c").child(id).setValue(conductor_o);
+                    /////////////////
+
+                    mDatabase.child("Usuario").child(id).setValue(conductor_o).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task2) {
                             if (task2.isSuccessful()) {

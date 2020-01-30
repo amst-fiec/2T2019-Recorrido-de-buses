@@ -1,88 +1,102 @@
 package com.e.main_hu4_prueba;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.GenericTypeIndicator;
+import com.google.firebase.database.ValueEventListener;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
 
 public class registrar_parada_conductor extends AppCompatActivity {
 
-    Button btn_reg;
-    TextView txt_parda, txt_coordenadas1,txt_coordenadas2;
-    parada parada_o;
-    String parada_fromTXT, coor_fromTXT, nombre_parada;
-    float latitud,longitud;
+    // FireBase
+    FirebaseAuth mAuth;
     DatabaseReference mDatabase;
+    FirebaseDatabase mFirebaseDatabase; //extra
+    FirebaseAuth.AuthStateListener mAuthListener; //extra
+    String id;
+
+    /// Views
+    Button btn_registrar;
+    EditText etxt_nombre_parada, etxt_lat, etxt_long;
+
+    //// Variables
+    String nombre_prd, lat, longitud;
+
+    //// Mis Objetos
+    Parada new_parada;
+    ArrayList<Parada> arrayParada;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrar_parada);
 
-        btn_reg= (Button) findViewById(R.id.btn_registrar);
-        txt_coordenadas1=(TextView) findViewById(R.id.edit_coordenadas1);
-        txt_coordenadas2=(TextView) findViewById(R.id.edit_coordenadas1);
-        txt_parda= (TextView) findViewById(R.id.edit_nombre_parada);
+        // Instancia Firebase Auth, para obtener informacion sobre el usuario actual
+        mAuth = FirebaseAuth.getInstance();
+        // Instancia Firebase DataBase
+        mFirebaseDatabase = FirebaseDatabase.getInstance();
+        mDatabase = mFirebaseDatabase.getReference("user_c").child(mAuth.getUid());//anterior  ->  mDatabase= mFirebaseDatabase.getReference();
+        // EditText
+        etxt_lat = (EditText) findViewById(R.id.edit_coordenadas1);
+        etxt_long = (EditText) findViewById(R.id.edit_coordenadas2);
+        etxt_nombre_parada = (EditText) findViewById(R.id.edit_nombre_parada);
+        // Button
+        btn_registrar = (Button) findViewById(R.id.btn_registrar);
 
-        btn_reg.setOnClickListener(new View.OnClickListener() {
+        btn_registrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                //System.out.println("Coordenadas: "+txt_coordenadas.getEditableText().toString());
-                //System.out.println("parada: "+txt_parda.getEditableText().toString());
-                //coor_fromTXT= txt_coordenadas.getEditableText().toString();
-                //parada_fromTXT=txt_parda.getEditableText().toString();
-
-                //creo objeto
-
-                parada_o= new parada (txt_parda.getEditableText().toString(),
-                        txt_coordenadas1.getEditableText().toString(),txt_coordenadas2.getEditableText().toString()
-                );
-
-                //adquiero parametros; longitud, latitud y nombre parada
-                longitud=parada_o.longitud_f();
-                latitud=parada_o.latitud_f();
-                nombre_parada=parada_o.getNombre_parada();
-                Map<String, Object> mapP = new HashMap<>();
-                mapP.put("longitud", parada_o.getCoordenadas2());
-                mapP.put("latitud", parada_o.getCoordenadas1());
-                mapP.put("nombre parada", nombre_parada);
-                mDatabase = FirebaseDatabase.getInstance().getReference();
-
-                mDatabase.child("Paradas").push().setValue(mapP).addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task2) {
-                        if (task2.isSuccessful()) {
-                            Toast.makeText(registrar_parada_conductor.this, "Se ha registrado la parada", Toast.LENGTH_SHORT).show();
-
-
-                        } else {
-                            Toast.makeText(registrar_parada_conductor.this, "No se pudo crear los datos correctamente", Toast.LENGTH_SHORT).show();
-
-                        }
-                    }
-                });
-
-                System.out.print("longitud, latitud: ");
-                System.out.println(latitud);
-                startActivity(new Intent(registrar_parada_conductor.this, panel_opcion_conductor.class));
-
-
+                //// etxt (->) String
+                nombre_prd = etxt_nombre_parada.getText().toString();
+                longitud = etxt_long.getText().toString();
+                lat = etxt_lat.getText().toString();
+                //// Objeto Parada
+                new_parada = new Parada(nombre_prd, lat, longitud);
+                //// Firebase
+                id = mAuth.getCurrentUser().getUid();
+                // metodo para registrar campos
+                registrarCampos ( mDatabase );
             }
         });
+    }
 
+    private void registrarCampos (final DatabaseReference mDatabase ){
+        mDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                // creo que indicador generico para asociar la DB con un arreglo tipo Parada
+                GenericTypeIndicator<ArrayList<Parada>> t;
+                t= new GenericTypeIndicator<ArrayList<Parada>>() {};
+                // lleno arreglo parada accediendo desde la base de datos
+                arrayParada = dataSnapshot.child("parada").getValue(t);
+                // añado la parada a la lista con paradas anteriores
+                arrayParada.add(new Parada(nombre_prd,lat,longitud));
+                // condiciono que los campos esten llenos
+                if (!nombre_prd.isEmpty() &&!longitud.isEmpty()&&!lat.isEmpty()){
+                    // agrego nueva parada
+                    mDatabase.child("parada").setValue(arrayParada);
+                }
+                else {
+                    Toast.makeText(registrar_parada_conductor.this, "complete todos los campos",Toast.LENGTH_SHORT).show();
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+            }
+        });
     }
 }

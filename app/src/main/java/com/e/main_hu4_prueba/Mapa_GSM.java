@@ -101,7 +101,14 @@ public class Mapa_GSM  extends FragmentActivity implements OnMapReadyCallback, R
             longVal=-79.9389;
         }
 
+        /*///*
+        Runnable runnable = new Mapa_GSM();
+        Thread thread = new Thread(runnable);
+        thread.start();
+        //
+        */
         ubicacion= new LatLng(latVal,longVal);// setea posicion
+
 
         CameraPosition cameraPosition = CameraPosition.builder().target(ubicacion)
                 .zoom(18)
@@ -116,6 +123,7 @@ public class Mapa_GSM  extends FragmentActivity implements OnMapReadyCallback, R
 
     @Override
     public void run() {
-
+        System.out.println("En metodo run, valor de L&L: ");
+        ubicacion= new LatLng(latVal,longVal);
     }
 }

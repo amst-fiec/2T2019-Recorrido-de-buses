@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_custom_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0684AD"
+    android:padding="2dp">
+
+    <Button
+        android:id="@+id/btn_cerrar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:gravity="center"
+        android:text="ok" />
+
+    <EditText
+        android:id="@+id/etxt_nueva_latitud"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_parada"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="63dp"
+        android:layout_marginTop="68dp"
+        android:layout_marginEnd="63dp"
+        android:background="@drawable/button"
+        android:ems="10"
+        android:hint="Latitud (-78.2356)"
+        android:inputType="textPersonName"
+        android:padding="15dp"
+        android:textColor="#F80E0D0D"
+        android:textColorHint="#928E8D" />
+
+    <EditText
+        android:id="@+id/etxt_nueva_longitud"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etxt_nueva_latitud"
+        android:layout_alignBottom="@+id/miChildView"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="63dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="63dp"
+        android:layout_marginBottom="36dp"
+        android:background="@drawable/button"
+        android:hint="Longitud (-23.2355)"
+        android:padding="15dp"
+        android:textColor="#F80E0D0D"
+        android:textColorHint="#928E8D" />
+
+    <TextView
+        android:id="@+id/txt_parada"
+        android:layout_width="126dp"
+        android:layout_height="52dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="111dp"
+        android:layout_marginTop="62dp"
+        android:layout_marginEnd="108dp"
+        android:gravity="center"
+        android:text="PARADA"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <View
+        android:id="@+id/miChildView"
+        android:layout_width="337dp"
+        android:layout_height="361dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp" />
+</RelativeLayout>

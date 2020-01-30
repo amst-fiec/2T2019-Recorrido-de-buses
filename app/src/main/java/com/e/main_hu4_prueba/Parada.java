@@ -1,16 +1,22 @@
 package com.e.main_hu4_prueba;
 
-public class parada {
+public class Parada {
     public String nombre_parada, coordenadas1,coordenadas2;
-    public float latitud, longitud;
+    //public float latitud, longitud;
 
-    public parada(String nombre_parada, String coordenadas1, String coordenadas2){
+    public Parada(String nombre_parada, String coordenadas1, String coordenadas2){
         this.coordenadas1=coordenadas1;
         this.coordenadas2=coordenadas2;
         this.nombre_parada=nombre_parada;
     }
 
-    public float latitud_f(){
+    public Parada(){
+        this.coordenadas1="";
+        this.coordenadas2="";
+        this.nombre_parada="";
+    }
+
+    /*public float latitud_f(){
         latitud= Float.parseFloat(coordenadas1);
         return latitud;
     }
@@ -23,6 +29,8 @@ public class parada {
     public String getNombre_parada() {
         return nombre_parada;
     }
+    */
+    public String getNombre_parada() { return this.nombre_parada;    }
 
     public void setNombre_parada(String nombre_parada) {
         this.nombre_parada = nombre_parada;
@@ -33,7 +41,7 @@ public class parada {
     }
 
     public void setCoordenadas1(String coordenadas1) {
-        this.coordenadas2 = coordenadas1;
+        this.coordenadas1 = coordenadas1;
     }
 
     public String getCoordenadas2() {
@@ -43,8 +51,4 @@ public class parada {
     public void setCoordenadas2(String coordenadas2) {
         this.coordenadas2 = coordenadas2;
     }
-
-
-
 }
-
