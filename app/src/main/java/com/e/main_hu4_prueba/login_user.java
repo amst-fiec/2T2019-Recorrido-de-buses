@@ -84,6 +84,9 @@ public class login_user extends AppCompatActivity {
                                 finish();
 
                             }
+                            else{
+                                Toast.makeText(login_user.this, "Usted no es un conductor",Toast.LENGTH_SHORT).show();
+                            }
                             //ya tenemos los datos desde Firebase, podemos actualizar la UI
 
                         }
@@ -99,25 +102,20 @@ public class login_user extends AppCompatActivity {
 
 
                     if (init_app_as.Listener.equals("btn_pasajero")){
-                        db_reference = FirebaseDatabase.getInstance().getReference("Usuario").child(mAuth.getUid());
+                        db_reference = FirebaseDatabase.getInstance().getReference("user_u").child(mAuth.getUid());
 
                         db_reference.addValueEventListener(new ValueEventListener() { @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
 
                             if(dataSnapshot.exists()){
-                                String tipo = dataSnapshot.child("tipo").getValue(String.class);
-                                if( tipo.equals("usuario")){
-                                    init_app_as.setListener("");
-
-                                    startActivity(new Intent(login_user.this,panel_opcion_pasajero.class));
-                                    finish();
-                                }
-                                else{
-                                    Toast.makeText(login_user.this, "Usted no es un conductor", Toast.LENGTH_SHORT).show();
-                                }
+                                init_app_as.setListener("");
+                                startActivity(new Intent(login_user.this,panel_opcion_pasajero.class));
+                                finish();
                             }
                             //ya tenemos los datos desde Firebase, podemos actualizar la UI
-
+                            else{
+                                Toast.makeText(login_user.this, "Usted no es un pasajero",Toast.LENGTH_SHORT).show();
+                            }
                         }
 
                             @Override

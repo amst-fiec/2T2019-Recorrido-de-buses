@@ -8,7 +8,7 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class opcion_paradas_conductor extends AppCompatActivity {
-    private Button btn_reg_parada, btn_del_parada, btn_mod_parada;
+    private Button btn_reg_parada, btn_del_parada, btn_mod_parada, btn_perfil;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +19,7 @@ public class opcion_paradas_conductor extends AppCompatActivity {
         btn_reg_parada= (Button)findViewById(R.id.btn_regis_parada);
         btn_mod_parada= (Button)findViewById(R.id.btn_modify_parada);
         btn_del_parada= (Button)findViewById(R.id.btn_delete_parada);
+        btn_perfil= (Button)findViewById(R.id.btn_perfilC);
 
         btn_reg_parada.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,6 +40,13 @@ public class opcion_paradas_conductor extends AppCompatActivity {
             public void onClick(View view) {
                 System.out.println("hola_from_menu-conductor");
                 startActivity(new Intent(opcion_paradas_conductor.this, modificar_parada_condutor.class ));
+            }
+        });
+
+        btn_perfil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(opcion_paradas_conductor.this, perfil_conductor.class));
             }
         });
 

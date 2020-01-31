@@ -92,7 +92,7 @@ public class Mapa_SigFox extends FragmentActivity implements OnMapReadyCallback 
                 longVal1 = String.valueOf(snapshot.child("Longitud").getValue());
 
             }
-            if (latVal1.equals(null) || longVal1.equals(null)){
+            if (latVal1.equals("null") || longVal1.equals("null")){
                 latVal=-2.177533;
                 longVal=-79.899504;
             }
