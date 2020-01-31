@@ -51,7 +51,7 @@ public class panel_opcion_conductor extends AppCompatActivity {
         btn_reg_datos_d.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //startActivity(new Intent(com.e.main_hu4_prueba.panel_opcion_conductor.this, SOMECLASS.class));
+                startActivity(new Intent(com.e.main_hu4_prueba.panel_opcion_conductor.this, perfil_conductor.class));
             }
         });
         //abre activity seleccionar parda (HU3)

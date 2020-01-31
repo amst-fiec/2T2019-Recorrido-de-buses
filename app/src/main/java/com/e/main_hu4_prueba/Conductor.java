@@ -8,6 +8,8 @@ public class Conductor {
 
     String nombre, correo, password, placa;
     ArrayList<Parada> arreglo_paradas;
+    //nuevas variables
+    int capacidad_max_bus, edad;
 
     public Conductor () {
         this.nombre="";
@@ -15,14 +17,20 @@ public class Conductor {
         this.password="";
         this.placa="no";
         this.arreglo_paradas=new ArrayList<Parada>();
+        //nuevo
+        this.capacidad_max_bus= 0;
+        this.edad=0;
     }
-    public Conductor(String nombre, String email, String password){
+
+    public Conductor(String nombre, String email, String password, int capacidad_max_bus, int edad){
         this.nombre=nombre;
         this.correo=email;
         this.password=password;
         this.placa="no";
         this.arreglo_paradas=new ArrayList<Parada>();
-
+        //nuevo
+        this.capacidad_max_bus= capacidad_max_bus;
+        this.edad=edad;
     }
     //
 
@@ -71,5 +79,14 @@ public class Conductor {
         return this.placa;
     }
     //
+
+    public int getCapacidad_max_bus() { return capacidad_max_bus; }
+
+    public void setCapacidad_max_bus(int capacidad_max_bus) { this.capacidad_max_bus = capacidad_max_bus; }
+    //
+
+    public int getEdad() { return edad; }
+
+    public void setEdad(int edad) { this.edad = edad; }
 
 }

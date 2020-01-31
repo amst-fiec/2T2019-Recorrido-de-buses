@@ -6,4 +6,106 @@
     android:layout_height="match_parent"
     tools:context=".perfil_conductor">
 
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Registrar Datos"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/textView7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.472"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:text="Informacion bus"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/edit_capacidadBus"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.484"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="319dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="24dp"
+        android:text="Informacion Conductor"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/edit_nombre"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/edit_placaBus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="92dp"
+        android:background="@drawable/edit_text_bottom"
+        android:ems="10"
+        android:hint="Placa Bus"
+        android:inputType="textPersonName"
+        android:padding="15dp"
+        android:textColor="#030303"
+        android:textColorHint="#757070"
+        app:layout_constraintBottom_toTopOf="@+id/textView11"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/edit_capacidadBus"
+        android:layout_width="218dp"
+        android:layout_height="52dp"
+        android:layout_marginBottom="44dp"
+        android:background="@drawable/edit_text_bottom"
+        android:ems="10"
+        android:hint="Capacidad máxima Bus"
+        android:inputType="textPersonName"
+        android:padding="15dp"
+        android:textColor="#030303"
+        android:textColorHint="#757070"
+        app:layout_constraintBottom_toTopOf="@+id/edit_placaBus"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/edit_nombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/edit_text_bottom"
+        android:ems="10"
+        android:hint="NombreConductor"
+        android:inputType="textPersonName"
+        android:padding="15dp"
+        android:textColor="#030303"
+        android:textColorHint="#757070"
+        app:layout_constraintBottom_toTopOf="@+id/edit_edad"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/edit_edad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="120dp"
+        android:background="@drawable/edit_text_bottom"
+        android:ems="10"
+        android:hint="Edad Conductor"
+        android:inputType="textPersonName"
+        android:padding="15dp"
+        android:textColor="#030303"
+        android:textColorHint="#757070"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

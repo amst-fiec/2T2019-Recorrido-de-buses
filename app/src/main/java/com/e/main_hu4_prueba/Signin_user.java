@@ -40,7 +40,9 @@ public class Signin_user extends AppCompatActivity {
     Parada parada_o= new Parada("default", "00", "00");
     //ArrayList<Parada> paradas_al= new ArrayList<Parada>();
 
-
+    // variables
+    private int edad=0;
+    private int cap_max_bus=0;
     private ProgressDialog message;
 
     @Override
@@ -129,8 +131,9 @@ public class Signin_user extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     // obtengo id de usuario creado
                     String id = mAuth.getCurrentUser().getUid();
+
                     /////// mi objeto
-                    conductor_o= new Conductor(nombre ,email,password);
+                    conductor_o= new Conductor(nombre ,email,password, cap_max_bus, edad);
                     conductor_o.setParada(parada_o);
                     mDatabase.child("user_c").child(id).setValue(conductor_o);
                     /////////////////
