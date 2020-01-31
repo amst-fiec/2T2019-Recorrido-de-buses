@@ -38,18 +38,51 @@
         android:id="@+id/textView11"
         android:layout_width="319dp"
         android:layout_height="40dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="32dp"
         android:text="Informacion Conductor"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/edit_nombre"
+        app:layout_constraintBottom_toTopOf="@+id/edit_nombre_conductor"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/edit_nombre_conductor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/edit_text_bottom"
+        android:ems="10"
+        android:hint="NombreConductor"
+        android:inputType="textPersonName"
+        android:padding="15dp"
+        android:textColor="#030303"
+        android:textColorHint="#757070"
+        app:layout_constraintBottom_toTopOf="@+id/edit_edad_conductor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/edit_edad_conductor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="56dp"
+        android:background="@drawable/edit_text_bottom"
+        android:ems="10"
+        android:hint="Edad Conductor"
+        android:inputType="textPersonName"
+        android:padding="15dp"
+        android:textColor="#030303"
+        android:textColorHint="#757070"
+        app:layout_constraintBottom_toTopOf="@+id/btn_guardar_datos_conductor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/edit_placaBus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="92dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/edit_text_bottom"
         android:ems="10"
         android:hint="Placa Bus"
@@ -59,6 +92,7 @@
         android:textColorHint="#757070"
         app:layout_constraintBottom_toTopOf="@+id/textView11"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.515"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
@@ -77,35 +111,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <EditText
-        android:id="@+id/edit_nombre"
+    <Button
+        android:id="@+id/btn_guardar_datos_conductor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
-        android:background="@drawable/edit_text_bottom"
-        android:ems="10"
-        android:hint="NombreConductor"
-        android:inputType="textPersonName"
-        android:padding="15dp"
-        android:textColor="#030303"
-        android:textColorHint="#757070"
-        app:layout_constraintBottom_toTopOf="@+id/edit_edad"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
-        android:id="@+id/edit_edad"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="120dp"
-        android:background="@drawable/edit_text_bottom"
-        android:ems="10"
-        android:hint="Edad Conductor"
-        android:inputType="textPersonName"
-        android:padding="15dp"
-        android:textColor="#030303"
-        android:textColorHint="#757070"
+        android:layout_marginBottom="52dp"
+        android:text="Guardar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
