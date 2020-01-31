@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".panel_opcion_conductor"
-    android:background="@drawable/min">
+    android:background="@drawable/min"
+    tools:context=".panel_opcion_conductor">
 
         <Button
             android:id="@+id/btn_out_d"
@@ -35,7 +35,7 @@
             app:layout_constraintHorizontal_bias="0.501"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.16" />
+            app:layout_constraintVertical_bias="0.114" />
 
         <Button
             android:id="@+id/btn_reg_datos_d"
@@ -50,7 +50,7 @@
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.292" />
+            app:layout_constraintVertical_bias="0.247" />
 
         <Button
             android:id="@+id/btn_historico"
@@ -96,6 +96,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.572" />
+
+        <Button
+            android:id="@+id/btn_perfilC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mi Perfil"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.049"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.061" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

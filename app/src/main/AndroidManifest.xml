@@ -15,7 +15,11 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:theme="@style/Theme.AppCompat.NoActionBar">
+<<<<<<< HEAD
         <activity android:name=".ModificarParada_datos"></activity>
+=======
+        <activity android:name=".perfil_conductor"></activity>
+>>>>>>> 788087099b36cb1d594b432d8914fee6e2247560
         <activity android:name=".dePrueba" />
         <activity android:name=".Mapa_GSM" />
         <activity android:name=".activity_historico" />

@@ -36,6 +36,7 @@ public class Signin_user extends AppCompatActivity {
     private String usuario="usuario";
     // Objetos mios
     Conductor conductor_o;
+    Usuario usuario_o;
     Parada parada_o= new Parada("default", "00", "00");
     //ArrayList<Parada> paradas_al= new ArrayList<Parada>();
 
@@ -107,7 +108,7 @@ public class Signin_user extends AppCompatActivity {
                 if (!nombre.isEmpty() && !email.isEmpty() && !password.isEmpty()){
                     if (password.length()>=6){
                         //llamada a metodo usado para crear usuarios
-                        //createAccount_P(); // comentado
+                        createAccount_P(); // comentado
                     }
                     else{
                         Toast.makeText(Signin_user.this,"Password al menos 6 caracteres", Toast.LENGTH_SHORT).show();
@@ -168,12 +169,11 @@ public class Signin_user extends AppCompatActivity {
                     String id = mAuth.getCurrentUser().getUid();
 
                     /////// mi objeto
-                    conductor_o= new Conductor(nombre ,email,password);
-                    conductor_o.setParada(parada_o);
-                    mDatabase.child("user_c").child(id).setValue(conductor_o);
+                    usuario_o= new Usuario(nombre,email,password);
+                    mDatabase.child("user_u").child(id).setValue(usuario_o);
                     /////////////////
 
-                    mDatabase.child("Usuario").child(id).setValue(conductor_o).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    mDatabase.child("user_u").child(id).setValue(usuario_o).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task2) {
                             if (task2.isSuccessful()) {
