@@ -62,6 +62,9 @@ public class modificar_parada_condutor extends AppCompatActivity {
     private EditText etxt_new_lat, etxt_new_long;
     private String newLAT_str, newLONG_str;
 
+    // variables
+    private static String parada_seleccionada;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -192,6 +195,7 @@ public class modificar_parada_condutor extends AppCompatActivity {
                 // We know the View is a TextView so we can cast it
                 TextView clickedView = (TextView) view;
                 Toast.makeText(modificar_parada_condutor.this, "Parada seleccionada: "+clickedView.getText(), Toast.LENGTH_SHORT).show();
+                parada_seleccionada= clickedView.getText().toString();
                 /* Iniciar startActivity hacia otra clase Activity para modificar el registro
                 *  en esa otra clase usaras algo parecido al metodo ModifyData1(DataSnapshot dataSnapshot,String parada_select, String latNew , String longNew);
                 * necesita todos enviarle esos atributos al metodo.
@@ -199,10 +203,14 @@ public class modificar_parada_condutor extends AppCompatActivity {
                 * latNew sera el edit text con la nueva latitud y lo mismo con longNew
                 * abajo esta el start Activity, deberas crear una nueva activity para que alli se lanze
                 * */
-                //startActivity(new Intent(modificar_parada_condutor.this, registrar_parada_conductor.class ));
+                startActivity(new Intent(modificar_parada_condutor.this, ModificarParada_datos.class ));
             }
 
         });
+    }
+
+    public static String getParadaSeleccionada(){
+        return parada_seleccionada;
     }
 
 }
