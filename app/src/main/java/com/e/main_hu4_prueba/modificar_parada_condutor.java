@@ -38,7 +38,6 @@ import java.util.Map;
 
 public class modificar_parada_condutor extends AppCompatActivity {
     //Views
-    private static final String TAG = "ViewDatabase";
     private ListView mListView;
 
     //firebase
@@ -54,7 +53,7 @@ public class modificar_parada_condutor extends AppCompatActivity {
     Parada parada;
     List<Map<String, String>> paradasList = new ArrayList<Map<String,String>>();
 
-    // ventana flotante
+    // ventana flotante // ya no se usa mas, se puede eliminar
     private PopupWindow mPopupWindow;
     private RelativeLayout mRelativeLayout;
     private Context mContext;
@@ -64,6 +63,8 @@ public class modificar_parada_condutor extends AppCompatActivity {
 
     // variables
     private static String parada_seleccionada;
+    private static final String TAG = "ViewDatabase";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,8 +73,8 @@ public class modificar_parada_condutor extends AppCompatActivity {
         //declarando View
         mListView = (ListView) findViewById(R.id.listview);
         mRelativeLayout = (RelativeLayout) findViewById(R.id.ViewParent);
-        // obtentiedo el contexto de la app
-        mContext = getApplicationContext();
+        // obteniendo el contexto de la app
+        mContext = getApplicationContext(); // creo que ni se usa esto
         // intancias de la sesion inicada en con firebase
         mAuth = FirebaseAuth.getInstance();
         // intancias de la sesion inicada, firebase database
@@ -116,63 +117,6 @@ public class modificar_parada_condutor extends AppCompatActivity {
         SimpleAdapter adapter = new SimpleAdapter(this,paradasList,android.R.layout.simple_list_item_1, new String[] {"parada"}, new int[] {android.R.id.text1});
         mListView.setAdapter(adapter);
     }
-    // modify data 1 sirve para modificar los datos de coordenadas
-    private void ModifyData1(DataSnapshot dataSnapshot,String parada_select, String latNew , String longNew){
-        GenericTypeIndicator<ArrayList<Parada>> t2;
-        t2= new GenericTypeIndicator<ArrayList<Parada>>() {};
-        arrayParada_mod = dataSnapshot.child("parada").getValue(t2);
-        for(Parada p : arrayParada_mod){
-            if (p.getNombre_parada().equals(parada_select)){
-                p.setCoordenadas1(latNew);
-                p.setCoordenadas2(longNew);
-            }
-            else{
-                System.out.println("no existe parada seleccionada: "+parada_select);
-            }
-        }
-        //// añado la parada a la lista con paradas anteriores
-        //arrayParada.add(new Parada(nombre_prd,lat,longitud));
-        //// agrego nueva parada
-        mDatabase.child("parada").setValue(arrayParada_mod);
-        //
-        //parada.setNombre_parada(dataSnapshot.child(userID).getValue(Parada.class).getNombre_parada()); //set the name
-
-    }
-    private void ModifyData2(DataSnapshot dataSnapshot_no_usado, final String parada_select, final String latNew , final String longNew){
-        mDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-
-                GenericTypeIndicator<ArrayList<Parada>> t2;
-                t2= new GenericTypeIndicator<ArrayList<Parada>>() {};
-
-                arrayParada_mod = dataSnapshot.child("parada").getValue(t2);
-
-                for(Parada p : arrayParada_mod){
-
-                    if (p.getNombre_parada().equals(parada_select)){
-                        System.out.println(" #################################################### : "
-                                + parada_select +
-                                " #################################################### ");
-                        p.setCoordenadas1(latNew);
-                        p.setCoordenadas2(longNew);
-                    }
-                    else{
-                        System.out.println(" #################################################### " +
-                                "no existe parada seleccionada: "+parada_select+
-                                "####################################################");
-                    }
-                }
-                //// agrego nueva parada
-                //mDatabase.child("parada").setValue(arrayParada_mod);
-
-            }
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-            }
-        });
-    }
-
         private void initList(ArrayList<Parada> arrayParada) {
         // Lleno la LIST
         for (Parada p : arrayParada){
