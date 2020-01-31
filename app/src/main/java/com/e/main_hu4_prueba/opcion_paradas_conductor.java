@@ -18,11 +18,7 @@ public class opcion_paradas_conductor extends AppCompatActivity {
         btn_reg_parada= (Button)findViewById(R.id.btn_regis_parada);
         btn_mod_parada= (Button)findViewById(R.id.btn_modify_parada);
         btn_del_parada= (Button)findViewById(R.id.btn_delete_parada);
-<<<<<<< HEAD
 
-=======
-        //btn_perfil= (Button)findViewById(R.id.btn_perfilC);
->>>>>>> 1f8c3f7f6188ddc16531d50f7ba55b85afec99e8
 
         btn_reg_parada.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,21 +41,7 @@ public class opcion_paradas_conductor extends AppCompatActivity {
                 startActivity(new Intent(opcion_paradas_conductor.this, modificar_parada_condutor.class ));
             }
         });
-<<<<<<< HEAD
 
-
-
-=======
-/*
-        btn_perfil.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(opcion_paradas_conductor.this, perfil_conductor.class));
-            }
-        });
-*/
->>>>>>> 1f8c3f7f6188ddc16531d50f7ba55b85afec99e8
-        //btn_reg_parada= (Button)findViewById(R.id.btn_regis_parada);
     }
 
 
