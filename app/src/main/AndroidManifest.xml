@@ -14,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity_historico"></activity>
+        <activity android:name=".datos_conductor"></activity>
+        <activity android:name=".activity_historico" />
         <activity android:name=".eliminar_parada_conductor" />
         <activity android:name=".modificar_parada_condutor" />
         <activity android:name=".seleccionar_parada" />
