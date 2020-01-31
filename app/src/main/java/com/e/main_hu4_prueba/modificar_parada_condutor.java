@@ -199,7 +199,7 @@ public class modificar_parada_condutor extends AppCompatActivity {
                 * latNew sera el edit text con la nueva latitud y lo mismo con longNew
                 * abajo esta el start Activity, deberas crear una nueva activity para que alli se lanze
                 * */
-                //startActivity(new Intent(modificar_parada_condutor.this, registrar_parada_conductor.class ));
+                startActivity(new Intent(modificar_parada_condutor.this, ModificarParada_datos.class ));
             }
 
         });
