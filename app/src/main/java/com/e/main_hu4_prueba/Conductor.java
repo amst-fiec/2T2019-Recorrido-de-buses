@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class Conductor {
 
 
-    String nombre, correo, password, placa;
+    String nombre, correo, password, placa, nombre_ruta;
     ArrayList<Parada> arreglo_paradas;
     //nuevas variables
     int capacidad_max_bus, edad;
@@ -20,9 +20,11 @@ public class Conductor {
         //nuevo
         this.capacidad_max_bus= 0;
         this.edad=0;
+        this.nombre_ruta="no";
+
     }
 
-    public Conductor(String nombre, String email, String password, int capacidad_max_bus, int edad){
+    public Conductor(String nombre, String email, String password, String nombre_ruta, int capacidad_max_bus, int edad){
         this.nombre=nombre;
         this.correo=email;
         this.password=password;
@@ -31,6 +33,19 @@ public class Conductor {
         //nuevo
         this.capacidad_max_bus= capacidad_max_bus;
         this.edad=edad;
+        this.nombre_ruta= nombre_ruta;
+    }
+
+    public Conductor(String nombre, String email, String password){
+        this.nombre=nombre;
+        this.correo=email;
+        this.password=password;
+        this.placa="no";
+        this.arreglo_paradas=new ArrayList<Parada>();
+        //nuevo
+        this.capacidad_max_bus= 0;
+        this.edad=0;
+        this.nombre_ruta= "no";
     }
     //
 
@@ -88,5 +103,11 @@ public class Conductor {
     public int getEdad() { return edad; }
 
     public void setEdad(int edad) { this.edad = edad; }
+    //
 
+
+    public String getNombre_ruta() { return nombre_ruta; }
+
+    public void setNombre_ruta(String nombre_ruta) { this.nombre_ruta = nombre_ruta;
+    }
 }

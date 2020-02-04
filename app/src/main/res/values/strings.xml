@@ -14,4 +14,6 @@
     <string name="visualizacion_gsm">Visualización GSM</string>
     <string name="historico">Historico</string>
     <string name="seleccionar_paradas">Seleccionar Paradas</string>
+    <string name="seleccionar_ruta">Seleccionar Ruta</string>
+    <string name="seleccionar_parada">Seleccionar Parada</string>
 </resources>

@@ -22,10 +22,10 @@ import java.util.Map;
 
 public class perfil_conductor extends AppCompatActivity {
     //Views
-    private EditText etxt_cap_max_bus, etxt_placa_bus, etxt_nombre, etxt_edad;
+    private EditText etxt_cap_max_bus, etxt_placa_bus, etxt_nombre, etxt_edad, etxt_nRuta;
     private Button btn_guardar_datos;
     // variables
-    private String  str_placa_bus, str_nombre;
+    private String  str_placa_bus, str_nombre, str_nRuta;
     int int_cap_max_bus, int_edad;
 
     private static String parada_seleccionada;
@@ -52,6 +52,7 @@ public class perfil_conductor extends AppCompatActivity {
         etxt_placa_bus= (EditText) findViewById(R.id.edit_placaBus);
         etxt_nombre= (EditText) findViewById(R.id.edit_nombre_conductor);
         etxt_edad= (EditText) findViewById(R.id.edit_edad_conductor);
+        etxt_nRuta= (EditText) findViewById(R.id.etxt_Nruta);
         // accion LISTENER
         btn_guardar_datos.setOnClickListener(new View.OnClickListener(){
 
@@ -60,6 +61,7 @@ public class perfil_conductor extends AppCompatActivity {
                 int_cap_max_bus= Integer.parseInt(etxt_cap_max_bus.getText().toString());
                 str_placa_bus=etxt_placa_bus.getText().toString();
                 str_nombre=etxt_nombre.getText().toString();
+                str_nRuta=etxt_nRuta.getText().toString();
                 int_edad=Integer.parseInt(etxt_edad.getText().toString());
 
                 // intancias de la sesion inicada en con firebase
@@ -78,7 +80,7 @@ public class perfil_conductor extends AppCompatActivity {
                 mDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        mody_datos_conductor( str_nombre,str_placa_bus, int_edad, int_cap_max_bus);
+                        mody_datos_conductor( str_nombre,str_placa_bus, str_nRuta,int_edad, int_cap_max_bus);
                     }
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
@@ -88,12 +90,13 @@ public class perfil_conductor extends AppCompatActivity {
         });
     }
 
-    public void mody_datos_conductor( String nombre, String placa, int edad, int cap_maxima_bus){
+    public void mody_datos_conductor( String nombre, String placa, String str_nRuta,int edad, int cap_maxima_bus){
         //// agrego nuevo dato
         mDatabase.child("capacidad_max_bus").setValue(cap_maxima_bus);
         mDatabase.child("edad").setValue(edad);
         mDatabase.child("nombre").setValue(nombre);
         mDatabase.child("placa").setValue(placa);
+        mDatabase.child("nombre_ruta").setValue(str_nRuta);
         //
         //parada.setNombre_parada(dataSnapshot.child(userID).getValue(Parada.class).getNombre_parada()); //set the name
 

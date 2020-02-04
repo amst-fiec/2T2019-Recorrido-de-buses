@@ -10,19 +10,22 @@
     <uses-permission android:name="android.permission.READ_SMS" />
 
     <application
+        android:name=".ApplicationClass"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".ModificarParada_datos"></activity>
-        <activity android:name=".perfil_conductor"/>
+        <activity android:name=".mapa_prueba"></activity>
+        <activity android:name=".pasajero_seleccionar_parada" />
+        <activity android:name=".ModificarParada_datos" />
+        <activity android:name=".perfil_conductor" />
         <activity android:name=".dePrueba" />
         <activity android:name=".Mapa_GSM" />
         <activity android:name=".activity_historico" />
         <activity android:name=".eliminar_parada_conductor" />
         <activity android:name=".modificar_parada_condutor" />
-        <activity android:name=".seleccionar_parada" />
+        <activity android:name=".pasajero_seleccionar_ruta" />
         <activity android:name=".panel_opcion_pasajero" />
         <activity android:name=".panel_opcion_conductor" />
 

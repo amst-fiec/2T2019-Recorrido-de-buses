@@ -4,18 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".seleccionar_parada">
+    tools:context=".pasajero_seleccionar_ruta">
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="341dp"
         android:layout_height="55dp"
-        android:text="@string/seleccionar_paradas"
+        android:text="@string/seleccionar_ruta"
         android:textAlignment="center"
         android:textAllCaps="true"
         android:textColor="#F44336"
         android:textColorHighlight="#00141313"
-        android:textSize="24sp"
+        android:textSize="35sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/listview2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

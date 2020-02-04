@@ -61,7 +61,7 @@ public class panel_opcion_pasajero extends AppCompatActivity {
         btn_select_parada.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(com.e.main_hu4_prueba.panel_opcion_pasajero.this, seleccionar_parada.class));
+                startActivity(new Intent(com.e.main_hu4_prueba.panel_opcion_pasajero.this, pasajero_seleccionar_ruta.class));
             }
         });
 

@@ -133,7 +133,7 @@ public class Signin_user extends AppCompatActivity {
                     String id = mAuth.getCurrentUser().getUid();
 
                     /////// mi objeto
-                    conductor_o= new Conductor(nombre ,email,password, cap_max_bus, edad);
+                    conductor_o= new Conductor(nombre ,email,password);
                     conductor_o.setParada(parada_o);
                     mDatabase.child("user_c").child(id).setValue(conductor_o);
                     /////////////////

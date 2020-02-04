@@ -21,15 +21,16 @@ import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.util.Timer;
 
-public class Mapa_GSM  extends FragmentActivity implements OnMapReadyCallback, Runnable {
 
+public class mapa_prueba  extends FragmentActivity implements OnMapReadyCallback, Runnable {
     private static final String SMS_RECEIVED = "android.provider.Telephony.SMS_RECEIVED";
     private String msgSETED;
 
     TextView messageTV;
 
-    private GoogleMap mMap, googleMap;
+    private GoogleMap mMap;
     public double latVal=0;
     public double longVal=0;
 
@@ -44,20 +45,11 @@ public class Mapa_GSM  extends FragmentActivity implements OnMapReadyCallback, R
             latVal= Float.parseFloat(msg.split(";")[0]);
             longVal= Float.parseFloat(msg.split(";")[1]);
 
-            msgSETED="Latitud: "+ Double.toString(latVal) +
-                    "\nLongitud: "+Double.toString(longVal);
+            msgSETED="Latitud: "+ Double.toString(latVal)+" ; "+
+                    "Longitud: "+Double.toString(longVal);
 
             messageTV.setText(msgSETED);
-            if (latVal==0){
-                System.out.println(" ####################### ####################### ES IGUAL latval: "+ latVal);
-            }
-            else{
-                System.out.println(" ####################### ####################### latval NO ES IGUAL: "+ latVal);
-            }
 
-            // metodo que setea position
-
-            map_set_location(googleMap,mMap);
         }
     };
     @Override
@@ -85,39 +77,45 @@ public class Mapa_GSM  extends FragmentActivity implements OnMapReadyCallback, R
         mapFragment.getMapAsync(this);
 
     }
-
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        this.googleMap= googleMap;
+
         mMap = googleMap;
         mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
         mMap.clear();
+
         UiSettings uiSettings= mMap.getUiSettings();
         uiSettings.setZoomControlsEnabled(true);
         //validacion
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+                == PackageManager.PERMISSION_GRANTED) {
+            mMap.setMyLocationEnabled(true);
+        } else {
+            Toast.makeText(mapa_prueba.this, "NO mMap.setMyLocationEnabled(true)", Toast.LENGTH_SHORT).show();
+        }
+
         if (latVal==0){
             latVal=-2.1629;
-        }
-        else{
-            System.out.println(" ####################### ####################### latval : "+ latVal);
         }
         if (longVal==0){
             longVal=-79.9389;
         }
-        else{
-            System.out.println(" ####################### ####################### longVal : "+ longVal);
-        }
-        //
-        //map_set_location(googleMap,mMap);
-    }
 
-    public void map_set_location(GoogleMap googleMap, GoogleMap mMap){
+        /*///*
+        Runnable runnable = new Mapa_GSM();
+        Thread thread = new Thread(runnable);
+        thread.start();
+        //
+        */
         ubicacion= new LatLng(latVal,longVal);// setea posicion
+
+
         CameraPosition cameraPosition = CameraPosition.builder().target(ubicacion)
                 .zoom(18)
                 .bearing(0)
                 .tilt(45)
                 .build();
+
         googleMap.moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
         mMap.addMarker(new MarkerOptions().position(ubicacion).title("Marker"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(ubicacion));

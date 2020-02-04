@@ -106,13 +106,11 @@ public class modificar_parada_condutor extends AppCompatActivity {
         t= new GenericTypeIndicator<ArrayList<Parada>>() {};
         // lleno arreglo parada accediendo desde la base de datos
         arrayParada = dataSnapshot.child("parada").getValue(t);
-
         for (Parada p : arrayParada){
             System.out.println("p.getNombre_parada(): "+ p.getNombre_parada());
         }
-
+        //inicio metodo que añade el nombre de la parada al map
         initList(arrayParada);
-
         // completo parametros de la list view
         SimpleAdapter adapter = new SimpleAdapter(this,paradasList,android.R.layout.simple_list_item_1, new String[] {"parada"}, new int[] {android.R.id.text1});
         mListView.setAdapter(adapter);

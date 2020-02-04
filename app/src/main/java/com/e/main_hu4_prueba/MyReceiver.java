@@ -18,11 +18,6 @@ public class MyReceiver extends BroadcastReceiver{
     private static final String TAG = "SmsBroadcastReceiver";
     String msg, phoneNo = "";
 
-    //@Override
-    //public void onReceive (Context context, Intent intent) {
-    //    Log.i(TAG, msg: "Intent received: " + intent.getAction());
-    //}
-
     @Override
     public void onReceive (Context context, Intent intent) {
         Log.i(TAG, "intent received: " + intent.getAction());
@@ -46,10 +41,6 @@ public class MyReceiver extends BroadcastReceiver{
                 }
                 Toast.makeText( context , "Message" + msg + "\nNumber: " + phoneNo, Toast.LENGTH_LONG).show();
 
-                ////////////////////
-                //TextView textView = findViewById();
-                //textView.setText("hello");
-                ////////////////////
             }
         }
     }
