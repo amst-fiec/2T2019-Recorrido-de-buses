@@ -98,21 +98,24 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="10:30  " />
+                android:text="10:30  "
+                android:textColor="#202525" />
 
             <TextView
                 android:id="@+id/t_sig"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="10:30" />
+                android:text="10:30"
+                android:textColor="#202525" />
 
             <TextView
                 android:id="@+id/t_gsm"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="10:30" />
+                android:text="10:30"
+                android:textColor="#202525" />
 
         </LinearLayout>
 

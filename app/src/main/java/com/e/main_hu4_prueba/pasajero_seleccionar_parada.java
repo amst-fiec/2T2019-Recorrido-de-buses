@@ -29,6 +29,8 @@ public class pasajero_seleccionar_parada extends AppCompatActivity {
 
     // variables
     private static String parada_seleccionada_user;
+    static String lat_selcted;
+    static String lon_selcted;
 
     //firebase
     private FirebaseDatabase mFirebaseDatabase;
@@ -36,7 +38,7 @@ public class pasajero_seleccionar_parada extends AppCompatActivity {
 
     // Mis objetos
     List<Map<String, String>> rutasList = new ArrayList<Map<String,String>>();
-    ArrayList<Parada> arrayParada;
+    static ArrayList<Parada> arrayParada;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +73,7 @@ public class pasajero_seleccionar_parada extends AppCompatActivity {
                 t= new GenericTypeIndicator<ArrayList<Parada>>() {};
                 // lleno arreglo parada accediendo desde la base de datos
                 arrayParada = ds.child("parada").getValue(t);
+
                 //inicio metodo que añade el nombre de la parada al map
                 initList(arrayParada);
                 // completo parametros de la list view
@@ -100,12 +103,22 @@ public class pasajero_seleccionar_parada extends AppCompatActivity {
                 Toast.makeText(pasajero_seleccionar_parada.this, "Parada seleccionada: "+clickedView.getText(), Toast.LENGTH_SHORT).show();
                 parada_seleccionada_user= clickedView.getText().toString();
                 // se redirije a otra activity despues de leccionar una ruta del ListView
-                //startActivity(new Intent(pasajero_seleccionar_parada.this, pasajero_seleccionar_parada.class ));
+                startActivity(new Intent(pasajero_seleccionar_parada.this, pasajero_show_parada.class ));
+                System.out.println("Coordenadas: "+get_coor());
+
             }
 
         });
     }
-
+    public static String get_coor( ){
+        for (Parada p : arrayParada){
+            if (p.getNombre_parada().equals(parada_seleccionada_user)){
+                lat_selcted=p.getCoordenadas1();
+                lon_selcted=p.getCoordenadas2();
+            }
+        }
+        return lat_selcted.concat(";").concat(lon_selcted);
+    }
     public static String parada_seleccionada_user(){
         return parada_seleccionada_user;
     }

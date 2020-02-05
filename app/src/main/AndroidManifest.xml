@@ -16,6 +16,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/iderbus_round"
         android:theme="@style/Theme.AppCompat.NoActionBar">
+        <activity android:name=".pasajero_show_parada"></activity>
         <activity android:name=".Datos_conductor" />
         <activity android:name=".mapa_drawingRoute" />
         <activity android:name=".mapa_prueba" />
