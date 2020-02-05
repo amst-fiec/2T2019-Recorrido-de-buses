@@ -60,25 +60,6 @@ public class Datos_conductor extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
             // invoco metodo para extraer datos desde Firebase y añadirlos a los Arrays
             showData(dataSnapshot);
-            System.out.println(" ############################## IMPRIMO ############################## ");
-            System.out.println(NOMBRE_C.size());
-            System.out.println(RUTA.size());
-            System.out.println(PLACA.size());
-            System.out.println(CAP_MAX.size());
-            /*
-            for (String s : NOMBRE_C){
-                System.out.println("s. "+s);
-            }
-            for (String s : CAP_MAX){
-                System.out.println("s. "+s);
-            }
-            for (String s : PLACA){
-                System.out.println("s. "+s);
-            }
-            for (String s : RUTA){
-                System.out.println("s. "+s);
-            }
-            */
             CustomAdapter customAdapter= new CustomAdapter();
             mListView.setAdapter(customAdapter);
             }
@@ -135,9 +116,6 @@ public class Datos_conductor extends AppCompatActivity {
             txt_placa.setText(PLACA.get(position));
             txt_ruta.setText(RUTA.get(position));
             txt_nombre.setText(NOMBRE_C.get(position));
-
-            System.out.println(" ############################## EN el CustomAdapter ############################## ");
-            System.out.println("CAP_MAX.get(position)"+CAP_MAX.get(position));
 
             return convertView;
         }
