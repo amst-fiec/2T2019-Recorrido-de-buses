@@ -34,7 +34,7 @@ public class panel_opcion_pasajero extends AppCompatActivity {
         btn_B_C_p.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //startActivity(new Intent(com.e.main_hu4_prueba.panel_opcion_pasajero.this, SOMECLASS.class));
+                startActivity(new Intent(com.e.main_hu4_prueba.panel_opcion_pasajero.this, Datos_conductor.class));
             }
         });
         //abre activity mapa gsm (HU1)

@@ -41,6 +41,8 @@ public class pasajero_seleccionar_ruta extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seleccionar_ruta);
+
+        // iniciar ListView
         mListView = (ListView) findViewById(R.id.listview2);
 
         // intancias de la sesion inicada en con firebase

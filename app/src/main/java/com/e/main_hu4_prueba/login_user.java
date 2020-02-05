@@ -69,9 +69,6 @@ public class login_user extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
                     System.out.println("hola desde taskisSuccesfull");
-                    //REVISA
-                    //startActivity(new Intent(login_user.this,Mapa_SigFox.class));
-                    //hay que validar si es usuairo o pasajero el que inicia sesion
                     if (init_app_as.Listener.equals("btn_conductor")){
                         System.out.println("hola desde ibit as btn_conductor");
                         db_reference = FirebaseDatabase.getInstance().getReference("user_c").child(mAuth.getUid());
@@ -79,8 +76,6 @@ public class login_user extends AppCompatActivity {
                         public void onDataChange(DataSnapshot dataSnapshot) {
                             if(dataSnapshot.exists()){
                                 System.out.println("datasnapshot existe");
-                                //String tipo = dataSnapshot.child("tipo").getValue(String.class);
-                                // elimine validacion de "si es conductor"
                                 init_app_as.setListener("");
                                 startActivity(new Intent(login_user.this,panel_opcion_conductor.class));
                                 finish();
@@ -89,7 +84,6 @@ public class login_user extends AppCompatActivity {
                                 System.out.println("datasnapshot no existe, no es conductor");
                                 Toast.makeText(login_user.this, "Usted no es un conductor",Toast.LENGTH_SHORT).show();
                             }
-                            //ya tenemos los datos desde Firebase, podemos actualizar la UI
                         }
                             @Override
                             public void onCancelled(DatabaseError databaseError) {

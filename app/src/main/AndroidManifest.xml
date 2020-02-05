@@ -12,11 +12,13 @@
     <application
         android:name=".ApplicationClass"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/iderbus"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/iderbus_round"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".mapa_prueba"></activity>
+        <activity android:name=".Datos_conductor" />
+        <activity android:name=".mapa_drawingRoute" />
+        <activity android:name=".mapa_prueba" />
         <activity android:name=".pasajero_seleccionar_parada" />
         <activity android:name=".ModificarParada_datos" />
         <activity android:name=".perfil_conductor" />

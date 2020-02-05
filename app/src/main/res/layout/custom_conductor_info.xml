@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#7AC2CF">
+
+    <TextView
+        android:id="@+id/txt_nombre_ruta"
+        android:layout_width="164dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="0dp"
+        android:gravity="center|start"
+        android:hint="nombre_ruta"
+        android:text="TextView"
+        android:textColor="#455391"
+        android:textColorHint="#177AC7"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txt_nombre_ruta_tag2"
+        android:layout_width="151dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_nombre_ruta_tag"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="-1dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="40dp"
+        android:layout_toStartOf="@+id/txt_placa"
+        android:gravity="clip_vertical|right|center_horizontal|center_vertical"
+        android:hint="nombre_ruta"
+        android:text="Placa:"
+        android:textColor="#0E1641"
+        android:textColorHint="#177AC7"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txt_nombre_ruta_tag3"
+        android:layout_width="151dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_nombre_ruta_tag2"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="-1dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="40dp"
+        android:layout_toStartOf="@+id/txt_cap_max"
+        android:gravity="clip_vertical|right|center_horizontal|center_vertical"
+        android:hint="nombre_ruta"
+        android:text="Capacidad:"
+        android:textAlignment="textEnd"
+        android:textColor="#0E1641"
+        android:textColorHint="#177AC7"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txt_nombre_ruta_tag4"
+        android:layout_width="182dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_nombre_ruta_tag3"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="-1dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="40dp"
+        android:layout_toStartOf="@+id/txt_nombreC"
+        android:gravity="clip_vertical|right|center_horizontal|center_vertical"
+        android:hint="nombre_ruta"
+        android:text="Conductor:"
+        android:textColor="#0E1641"
+        android:textColorHint="#177AC7"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txt_placa"
+        android:layout_width="164dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_nombre_ruta"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="0dp"
+        android:gravity="center|start"
+        android:hint="nombre_ruta"
+        android:text="TextView"
+        android:textColor="#455391"
+        android:textColorHint="#177AC7"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txt_cap_max"
+        android:layout_width="164dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_placa"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="0dp"
+        android:gravity="center|start"
+        android:hint="nombre_ruta"
+        android:text="TextView"
+        android:textColor="#455391"
+        android:textColorHint="#177AC7"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txt_nombreC"
+        android:layout_width="164dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_cap_max"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="0dp"
+        android:gravity="center|start"
+        android:hint="nombre_ruta"
+        android:text="TextView"
+        android:textColor="#455391"
+        android:textColorHint="#177AC7"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txt_nombre_ruta_tag"
+        android:layout_width="182dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="-1dp"
+        android:layout_marginTop="31dp"
+        android:layout_marginEnd="40dp"
+        android:layout_toStartOf="@+id/txt_nombre_ruta"
+        android:gravity="clip_vertical|right|center_horizontal|center_vertical"
+        android:hint="nombre_ruta"
+        android:text="Nombre Ruta:"
+        android:textColor="#0E1641"
+        android:textColorHint="#177AC7"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+</RelativeLayout >
